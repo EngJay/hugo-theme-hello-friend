@@ -283,11 +283,25 @@ blockquote.twitter-tweet {
 
 .h-anchor {
   margin-left: 1px;
-  color: var(--color-secondary);
+  color: #fe5186;
   text-decoration: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.1s, opacity 0.1s linear;
+  visibility: visible;
+  opacity: 0.8; /* Slightly visible by default */
+  transition: visibility 0s linear 0s, opacity 0.1s linear;
+
+  svg {
+    fill: currentColor; /* Use the current text color for the fill */
+    display: inline; /* Ensure the SVG is inline */
+    opacity: 0.8; /* Slightly visible by default */
+    transition: opacity 0.1s linear; /* Smooth transition for opacity */
+  }
+
+  &:hover {
+    opacity: 1; /* Fully visible on hover */
+    svg {
+      opacity: 1; /* Fully visible on hover */
+    }
+  }
 }
 
 h1:hover a,
