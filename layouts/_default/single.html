@@ -45,8 +45,14 @@
     <div class="post-content">
       {{ if or .Params.Toc $.Site.Params.Toc }}
         {{ if ne .Params.Toc false }}
-        <h2>Table of Contents</h2>
-        <aside class="table-of-contents">{{ .TableOfContents }}</aside>
+          <details class="entry-toc">
+          <summary>
+            <span class="entry-toc-header">
+              Table of contents
+            </span>
+          </summary>
+          {{ .TableOfContents }}
+          </details>
         {{ end }}
       {{ end }}
       {{ .Content }}
