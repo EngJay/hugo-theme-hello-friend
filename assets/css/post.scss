@@ -108,3 +108,13 @@
     }
   }
 }
+
+p.post-commit-notice {
+    opacity: .5;
+    font-size: .85rem;
+    margin: 50px 0;
+}
+
+p.post-commit-notice span {
+    font-weight: 700;
+}
