@@ -316,3 +316,13 @@ h4:hover a {
 .framed .h-anchor {
   visibility: hidden;
 }
+
+.post-meta :not(:last-child) {
+    border-right: 1px solid;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.post-meta span.post-primary-tag a.p-category {
+    text-decoration-color: #fe5186;
+}
