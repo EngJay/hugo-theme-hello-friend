@@ -14,5 +14,22 @@
 @import 'terms';
 @import 'archive';
 
-@import 'prism';
-@import 'code';
+// @import 'prism';
+// @import 'code';
+
+body.dark-theme {
+    @import 'syntax-dark';
+}
+@media (prefers-color-scheme: dark) {
+    body:not(.light-theme) {
+        @import 'syntax-dark';
+    }
+}
+body.light-theme {
+    @import 'syntax-light';
+}
+@media (prefers-color-scheme: light) {
+    body:not(.dark-theme) {
+        @import 'syntax-light';
+    }
+}

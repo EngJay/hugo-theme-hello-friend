@@ -326,3 +326,18 @@ h4:hover a {
 .post-meta span.post-primary-tag a.p-category {
     text-decoration-color: #fe5186;
 }
+
+div.highlight {
+    margin: 0 -40px;
+}
+
+pre {
+    white-space: pre;
+    word-wrap: normal;
+    border-radius: 4px;
+}
+
+pre.chroma {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
