@@ -1,7 +1,7 @@
 .footer {
   padding: 40px 20px;
   flex-grow: 0;
-  color: var(--color-secondary);
+  color: var(--color);
 
   &__inner {
     display: flex;
@@ -38,7 +38,6 @@
   }
 
   .copyright {
-    color: rgb(34, 34, 34);
     display: flex;
     flex-direction: row;
     align-items: center;
