@@ -31,11 +31,11 @@
             {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
           </time>
 
-          {{ if eq .Type $contentTypeName }}
+          {{/*  {{ if eq .Type $contentTypeName }}
             {{ if $.Site.Params.LastModDisplay }}
               {{ partial "lastmod.html" . }}
             {{ end }}
-          {{ end }}
+          {{ end }}  */}}
         {{ end }}
 
         {{ with .Params.Author }}
