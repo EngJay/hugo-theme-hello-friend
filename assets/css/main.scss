@@ -347,3 +347,26 @@ pre.chroma {
     border: 1px solid var(--border-color);
     box-shadow: 0 3px 10px rgba(0,0,0,.15);
 }
+
+.alert-gh-style {
+    margin: 1em 0;
+    padding: .5em 1em;
+
+    &>*:first-child {
+      margin-top: 0;
+    }
+
+    &>*:last-child {
+      margin-bottom: 0;
+    }
+
+    &.alert-gh-style-note {
+      border-left: .5em solid #8ebeeb;
+      background-color: rgba(142,190,235,.1);
+    }
+
+    code {
+      background-color: #1c1c1c;
+      color: #ccc;
+    }
+}
