@@ -351,6 +351,7 @@ pre.chroma {
 .alert-gh-style {
     margin: 1em 0;
     padding: .5em 1em;
+    background-color: rgba(142,190,235,.1);
 
     &>*:first-child {
       margin-top: 0;
@@ -361,8 +362,43 @@ pre.chroma {
     }
 
     &.alert-gh-style-note {
-      border-left: .5em solid #8ebeeb;
-      background-color: rgba(142,190,235,.1);
+      border-left: .5em solid #316dca;
+
+      // From GitHub's styles.  
+      // --borderColor-accent-muted: #4184e466;
+      // --borderColor-accent-emphasis: #316dca;
+    }
+
+    &.alert-gh-style-tip {
+      border-left: .5em solid #347d39;
+
+      // From GitHub's styles.  
+      // --borderColor-success-muted: #46954a66;
+      // --borderColor-success-emphasis: #347d39;
+    }
+
+    &.alert-gh-style-important {
+      border-left: .5em solid #8256d0;
+
+      // From GitHub's styles.  
+      // --borderColor-done-muted: #986ee266;
+      // --borderColor-done-emphasis: #8256d0;
+    }
+
+    &.alert-gh-style-warning {
+      border-left: .5em solid #966600;
+
+      // From GitHub's styles.  
+      // --borderColor-attention-muted: #ae7c1466;
+      // --borderColor-attention-emphasis: #966600;
+    }
+
+    &.alert-gh-style-caution {
+      border-left: .5em solid #c93c37;
+
+      // From GitHub's styles.  
+      // --borderColor-danger-muted: #e5534b66;
+      // --borderColor-danger-emphasis: #c93c37;
     }
 
     code {
