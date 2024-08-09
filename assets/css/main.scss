@@ -331,6 +331,12 @@ div.highlight {
     margin: 0 -40px;
 }
 
+@media (max-width: 900px) {
+  div.highlight {
+      margin: 0;
+}
+}
+
 pre {
     white-space: pre;
     word-wrap: normal;
