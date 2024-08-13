@@ -29,8 +29,8 @@
           >— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span
         >{{ end }}
 
-
-      {{ if $.Site.Params.ShowReadingTime }}
+      {{ $showReadingTime := .Params.ShowReadingTime | default $.Site.Params.ShowReadingTime }}
+      {{ if $showReadingTime }}
         <span class="post-read-time"
           >{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
         >
