@@ -406,3 +406,11 @@ pre.chroma {
       color: #ccc;
     }
 }
+
+// Center the generated Instagram iframe.
+.ig-iframe-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
