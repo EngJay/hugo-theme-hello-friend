@@ -18,7 +18,7 @@
     <div class="copyright">
       {{ $gitInfo := .Site.Data.gitinfo }}
       <span>Build {{ now.Format "2006" }}.{{ now.Format "01" }}.{{ now.Format "02" }}.{{ $gitInfo.hash }}</span>
-      <span>Powered by <a href="{{ .Site.BaseURL }}/about#this-website">Hugo, AWS, et al.</a></span>
+      <span>Powered by <a href="{{ .Site.BaseURL }}about/#this-website">Hugo, AWS, et al.</a></span>
     </div>
   </div>
 </footer>
