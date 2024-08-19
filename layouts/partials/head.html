@@ -26,7 +26,8 @@
 
 <!-- Theme CSS -->
 {{ $res := resources.Get "css/style.scss" }}
-{{ $style := $res | resources.ToCSS }}
+{{ $css := $res | resources.ToCSS }}
+{{ $style := $css | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 <!-- Custom CSS to override theme properties (/static/style.css) -->
 <link rel="stylesheet" href="{{ "style.css" | absURL }}" />
