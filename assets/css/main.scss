@@ -106,28 +106,22 @@ figure {
     margin-left: auto;
   }
 
-  &.caption-left {
-    figcaption {
-      text-align: left;
-    }
-  }
-
-  &.caption-center {
-    figcaption {
-      text-align: center;
-    }
-  }
-
-  &.caption-right {
-    figcaption {
-      text-align: right;
-    }
-  }
-
   figcaption {
     font-size: .9rem;
     margin-top: 5px;
     opacity: .8;
+  }
+
+  &.caption-left figcaption {
+      text-align: left;
+  }
+
+  &.caption-center figcaption {
+      text-align: center;
+  }
+
+  &.caption-right figcaption {
+      text-align: right;
   }
 }
 
