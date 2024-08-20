@@ -1,9 +1,17 @@
 <figure class="post-cover">
   <a href="{{ .Permalink }}">
     {{ if .Params.UseRelativeCover }}
-      <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" alt="{{ .Params.CoverAlt | plainify | default .Title }}"/>
+      <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}"
+           width="{{ .Params.CoverWidth }}"
+           height="{{ .Params.CoverHeight }}"
+           loading="{{ .Params.CoverLoading }}"
+           alt="{{ .Params.CoverAlt | plainify | default .Title }}"/>
     {{ else }}
-      <img src="{{ .Params.Cover | absURL }}" alt="{{ .Params.CoverAlt | plainify | default .Title }}"/>
+      <img src="{{ .Params.Cover | absURL }}"
+           width="{{ .Params.CoverWidth }}"
+           height="{{ .Params.CoverHeight }}"
+           loading="{{ .Params.CoverLoading }}"
+           alt="{{ .Params.CoverAlt | plainify | default .Title }}"/>
     {{ end }}
   </a>
 
