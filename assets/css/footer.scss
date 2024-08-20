@@ -1,7 +1,7 @@
 .footer {
   padding: 40px 20px;
   flex-grow: 0;
-  color: var(--color-secondary);
+  color: var(--color);
 
   &__inner {
     display: flex;
@@ -20,6 +20,23 @@
     color: inherit;
   }
 
+  .sub__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 auto;
+    width: 760px;
+    max-width: 100%;
+
+    @media ($tablet) {
+      flex-direction: column;
+    }
+
+    & .copyright {
+      font-size: .8em;
+    }
+  }
+
   .copyright {
     display: flex;
     flex-direction: row;
@@ -31,7 +48,7 @@
       text-align: center;
     }
 
-    & > *:first-child:not(:only-child) {
+    & > *:not(:last-child):not(:only-child) {
       border-right: 1px solid;
       padding-right: 10px;
       margin-right: 10px;

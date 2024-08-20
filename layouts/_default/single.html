@@ -5,16 +5,23 @@
   <article class="post">
     <h1 class="post-title">{{ .Title | markdownify }}</h1>
     <div class="post-meta">
+      {{ if .Params.tags }}
+        <span class="post-primary-tag">
+          {{ range .Params.tags }}
+            <a class="p-category" href="{{ (urlize (printf "tags/%s" . )) | absLangURL }}/">{{ . }}</a>&nbsp;
+          {{ end }}
+        </span>
+      {{ end }}
       {{ if .Date | default nil }}
         <time class="post-date">
           {{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}
         </time>
 
-        {{ if eq .Type $contentTypeName }}
+        {{/*  {{ if eq .Type $contentTypeName }}
           {{ if $.Site.Params.LastModDisplay }}
             {{ partial "lastmod.html" . }}
           {{ end }}
-        {{ end }}
+        {{ end }}  */}}
       {{ end }}
 
       {{ with .Params.Author }}
@@ -22,36 +29,43 @@
           >— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span
         >{{ end }}
 
-
-      {{ if $.Site.Params.ShowReadingTime }}
+      {{ $showReadingTime := .Params.ShowReadingTime | default $.Site.Params.ShowReadingTime }}
+      {{ if $showReadingTime }}
         <span class="post-read-time"
-          >— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
+          >{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
         >
       {{ end }}
     </div>
-
-    {{ if .Params.tags }}
-      <span class="post-tags">
-        {{ range .Params.tags }}
-          <a href="{{ (urlize (printf "tags/%s" . )) | absLangURL }}/">#{{ . }}</a>&nbsp;
-        {{ end }}
-      </span>
-    {{ end }}
 
     {{ if .Params.Cover }}
       {{ partial "postcover.html" . }}
     {{ end }}
 
     <div class="post-content">
+      {{ if .Params.renderDescription }}
+        {{ with .Description }}
+          {{ . | markdownify }}
+        {{ else }}
+          {{ if .Truncated }}
+            {{ .Summary }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
       {{ if or .Params.Toc $.Site.Params.Toc }}
         {{ if ne .Params.Toc false }}
-        <h2>Table of Contents</h2>
-        <aside class="table-of-contents">{{ .TableOfContents }}</aside>
+          <details class="entry-toc">
+          <summary>
+            <span class="entry-toc-header">
+              Table of contents
+            </span>
+          </summary>
+          {{ .TableOfContents }}
+          </details>
         {{ end }}
       {{ end }}
       {{ .Content }}
     </div>
-    {{ if eq .Type $.Site.Params.contentTypeName }}
+    {{/*  {{ if eq .Type $.Site.Params.contentTypeName }}
       {{ if or .NextInSection .PrevInSection }}
         <div class="pagination">
           <div class="pagination__title">
@@ -80,7 +94,7 @@
           </div>
         </div>
       {{ end }}
-    {{ end }}
+    {{ end }}  */}}
 
     {{ if not (eq .Params.Comments "false") }}
       {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}

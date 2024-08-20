@@ -1,0 +1,6 @@
+<p class="post-commit-notice">
+    Last commit:
+{{ with .Page.GitInfo }}
+    {{ .AbbreviatedHash }} on {{ .CommitDate.Format "2006-01-02" }}, with message: <span class="">{{ .Subject }}</span>.
+{{ end }}
+</p>

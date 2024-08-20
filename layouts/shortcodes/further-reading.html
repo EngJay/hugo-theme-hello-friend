@@ -1,0 +1,16 @@
+<div class="post-related">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Further reading</span>
+        <hr>
+    </div>
+        
+    <ul>
+        {{ if .Page.Params.tags }}
+            {{ range intersect .Site.RegularPages (where .Site.RegularPages "Params.tags" "intersect" .Page.Params.tags) }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        {{ else }}
+            <p>No related posts available.</p>
+        {{ end }}
+    </ul>
+</div>

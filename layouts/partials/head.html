@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}"
+  content="{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}"
 />
 <meta
   name="keywords"
@@ -16,7 +16,8 @@
 
 <!-- Theme CSS -->
 {{ $res := resources.Get "css/style.scss" }}
-{{ $style := $res | resources.ToCSS }}
+{{ $css := $res | resources.ToCSS }}
+{{ $style := $css | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 <!-- Custom CSS to override theme properties (/static/style.css) -->
 <link rel="stylesheet" href="{{ "style.css" | absURL }}" />

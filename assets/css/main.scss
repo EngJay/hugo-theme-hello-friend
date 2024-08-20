@@ -73,6 +73,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 
   &.left {
     margin-right: auto;
@@ -107,23 +108,25 @@ figure {
   }
 
   figcaption {
-    font-size: .9rem;
+    font-size: 0.9rem;
     margin-top: 5px;
-    opacity: .8;
+    opacity: 0.8;
+    text-align: left; /* Default alignment */
+  }
 
-    &.left {
-      text-align: left;
-    }
+  &.caption-left figcaption {
+    text-align: left;
+  }
 
-    &.center {
-      text-align: center;
-    }
+  &.caption-center figcaption {
+    text-align: center;
+  }
 
-    &.right {
-      text-align: right;
-    }
+  &.caption-right figcaption {
+    text-align: right;
   }
 }
+
 
 code, kbd {
   font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
@@ -283,11 +286,25 @@ blockquote.twitter-tweet {
 
 .h-anchor {
   margin-left: 1px;
-  color: var(--color-secondary);
+  color: #fe5186;
   text-decoration: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.1s, opacity 0.1s linear;
+  visibility: visible;
+  opacity: 0.8; /* Slightly visible by default */
+  transition: visibility 0s linear 0s, opacity 0.1s linear;
+
+  svg {
+    fill: currentColor; /* Use the current text color for the fill */
+    display: inline; /* Ensure the SVG is inline */
+    opacity: 0.8; /* Slightly visible by default */
+    transition: opacity 0.1s linear; /* Smooth transition for opacity */
+  }
+
+  &:hover {
+    opacity: 1; /* Fully visible on hover */
+    svg {
+      opacity: 1; /* Fully visible on hover */
+    }
+  }
 }
 
 h1:hover a,
@@ -301,4 +318,102 @@ h4:hover a {
 
 .framed .h-anchor {
   visibility: hidden;
+}
+
+.post-meta :not(:last-child) {
+    border-right: 1px solid;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.post-meta span.post-primary-tag a.p-category {
+    text-decoration-color: #fe5186;
+}
+
+div.highlight {
+    margin: 0 -40px;
+}
+
+@media (max-width: 900px) {
+  div.highlight {
+      margin: 0;
+}
+}
+
+pre {
+    white-space: pre;
+    word-wrap: normal;
+    border-radius: 4px;
+}
+
+pre.chroma {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
+
+.alert-gh-style {
+    margin: 1em 0;
+    padding: .5em 1em;
+    background-color: rgba(142,190,235,.1);
+
+    &>*:first-child {
+      margin-top: 0;
+    }
+
+    &>*:last-child {
+      margin-bottom: 0;
+    }
+
+    &.alert-gh-style-note {
+      border-left: .5em solid #316dca;
+
+      // From GitHub's styles.  
+      // --borderColor-accent-muted: #4184e466;
+      // --borderColor-accent-emphasis: #316dca;
+    }
+
+    &.alert-gh-style-tip {
+      border-left: .5em solid #347d39;
+
+      // From GitHub's styles.  
+      // --borderColor-success-muted: #46954a66;
+      // --borderColor-success-emphasis: #347d39;
+    }
+
+    &.alert-gh-style-important {
+      border-left: .5em solid #8256d0;
+
+      // From GitHub's styles.  
+      // --borderColor-done-muted: #986ee266;
+      // --borderColor-done-emphasis: #8256d0;
+    }
+
+    &.alert-gh-style-warning {
+      border-left: .5em solid #966600;
+
+      // From GitHub's styles.  
+      // --borderColor-attention-muted: #ae7c1466;
+      // --borderColor-attention-emphasis: #966600;
+    }
+
+    &.alert-gh-style-caution {
+      border-left: .5em solid #c93c37;
+
+      // From GitHub's styles.  
+      // --borderColor-danger-muted: #e5534b66;
+      // --borderColor-danger-emphasis: #c93c37;
+    }
+
+    code {
+      background-color: #1c1c1c;
+      color: #ccc;
+    }
+}
+
+// Center the generated Instagram iframe.
+.ig-iframe-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
