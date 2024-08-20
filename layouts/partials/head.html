@@ -18,7 +18,7 @@
 {{ else }}
   {{ $cspFontSrc = (printf "'self' %s" $baseURL) }}
 {{ end }}
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src {{ $cspFontSrc }}; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; upgrade-insecure-requests;">
 
 
 <!-- head custom -->
