@@ -417,3 +417,38 @@ pre.chroma {
     justify-content: center;
     align-items: center;
 }
+
+// Photo layouts.
+.photo-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Prevents wrapping */
+  align-items: flex-start; /* Aligns items at the top */
+  margin: 0 -40px 1em;
+
+  .photo-item {
+    width: 100%; /* Ensures the figure takes full width of its container */
+    margin: 5px 0;
+  }
+
+  & > div {
+    flex: 1;
+    margin: 0 5px;
+    max-width: 49%; /* Adjust width to avoid overlap */
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-container {
+      flex-direction: column; /* Stack items on small screens */
+  }
+
+  .photo-container {
+    margin: 0;
+  }
+
+  .photo-container > div {
+      max-width: 100%; /* Full width on small screens */
+  }
+}
+
