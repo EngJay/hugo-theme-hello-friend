@@ -5,5 +5,3 @@ Do not put anything in this file - it's only here so that hugo won't throw an er
 {{ if and (eq hugo.Environment "production") .Site.Config.Services.GoogleAnalytics.ID }}
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
-
-
