@@ -2,7 +2,7 @@
 If you want to include any custom html just before </head>, put it in /layouts/partials/extended_head.html
 Do not put anything in this file - it's only here so that hugo won't throw an error if /layouts/partials/extended_head.html doesn't exist.
 -->
-{{ if and (hugo.IsProduction) (.Site.Params.googleAnalyticsId) }}
+{{ if and (eq hugo.Environment "production") .Site.Config.Services.GoogleAnalytics.ID }}
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
 
